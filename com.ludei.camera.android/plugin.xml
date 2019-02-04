@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cocoon-plugin-camera-android"
+    version="2.0.0">
+
+    <name>Cocoon Android Camera plugin</name>
+    <description>Cocoon plugin camera support.</description>
+    <license>Copyright Ludei</license>
+    <keywords>cordova, ludei, cocoon, application</keywords>
+    <repo></repo>
+    <issue></issue>
+
+    <engines>
+      <engine name="cordova-android" version=">=7" />
+      <engine name="cordova-plugman" version=">=4.2.0" />
+    </engines>
+
+    <platform name="android">
+        <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.CAMERA" />
+            <uses-feature android:name="android.hardware.camera" />
+            <uses-feature android:name="android.hardware.camera.autofocus" />
+        </config-file>
+
+        <hook type="after_plugin_install" src="hooks/after_plugin_install.js" />
+        
+        <source-file src="src/LudeiExtensionCamera.jar" target-dir="libs" framework="true" />
+    </platform>
+</plugin>
